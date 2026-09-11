@@ -1,0 +1,82 @@
+name: Issue Commands
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  dispatch:
+    # Only respond to the repo owner
+    if: github.event.comment.user.login == 'daligao'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse and run command
+        env:
+          COMMENT: ${{ github.event.comment.body }}
+          ISSUE_NUM: ${{ github.event.issue.number }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          CMD=$(echo "$COMMENT" | grep -oP '^/\S+' | head -1)
+          ARGS=$(echo "$COMMENT" | sed 's|^/[^ ]* *||')
+          echo "Command: $CMD | Args: $ARGS"
+
+          case "$CMD" in
+
+            /seo-audit)
+              pip -q install requests beautifulsoup4 lxml
+              python3 scripts/audit.py all
+              RESULT=$(cat reports/audit-$(date +%Y-%m-%d).json | python3 -c "
+          import sys,json; d=json.load(sys.stdin)
+          lines=['**SEO Audit ' + d['date'] + '**', '']
+          for s in d['sites']:
+              flag='✅' if not s.get('issues') and s['status']==200 else '⚠️'
+              lines.append(f\"{flag} {s['site_name']} — HTTP {s['status']}\")
+              for i in s.get('issues',[]): lines.append(f'  - {i}')
+          print('\n'.join(lines))")
+              gh issue comment $ISSUE_NUM --body "$RESULT" --repo $REPO
+              ;;
+
+            /audit)
+              # Alias for /seo-audit
+              pip -q install requests beautifulsoup4 lxml
+              python3 scripts/audit.py all
+              gh issue comment $ISSUE_NUM --body "Audit done. Check reports/ for full JSON." --repo $REPO
+              ;;
+
+            /list-tools)
+              RESULT=$(cat ../year-of-goat-2027/data/tools.json 2>/dev/null | python3 -c "
+          import sys,json
+          try:
+              d=json.load(sys.stdin)
+              lines=[f\"**Tools on chinesefortunetools.online** ({len(d['tools'])} total)\", '']
+              for t in d['tools']:
+                  lines.append(f\"- [{t['status']}] {t['emoji']} {t['title']} → {t['url']}\")
+              print('\n'.join(lines))
+          except: print('Could not read tools.json')
+          " 2>/dev/null || echo "Run from year-of-goat-2027 context")
+              gh issue comment $ISSUE_NUM --body "$RESULT" --repo $REPO
+              ;;
+
+            /help)
+              gh issue comment $ISSUE_NUM --repo $REPO --body "**Available commands** (owner only):
+
+          | Command | What it does |
+          |---|---|
+          | \`/seo-audit\` | Run SEO health check on all 4 sites |
+          | \`/list-tools\` | List all experiments on .online |
+          | \`/help\` | Show this message |
+
+          > Commands trigger GitHub Actions. Results posted here within ~60 seconds."
+              ;;
+
+            *)
+              gh issue comment $ISSUE_NUM --repo $REPO --body "Unknown command: \`$CMD\`. Try \`/help\`."
+              ;;
+          esac
