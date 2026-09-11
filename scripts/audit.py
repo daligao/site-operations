@@ -14,7 +14,7 @@ SITES = [
     {"name": "chinesenamecraft.com",       "url": "https://chinesenamecraft.com/"},
 ]
 
-HEADERS = {"User-Agent": "SiteOpsBot/1.0 (site-operations health check)"}
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"}
 
 def audit_page(url):
     issues = []
