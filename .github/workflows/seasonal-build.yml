@@ -1,0 +1,77 @@
+name: Seasonal Theme Build
+
+on:
+  schedule:
+    # Check daily at 01:00 UTC — only rebuilds when season changes
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  seasonal:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: daligao/year-of-goat-2027
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Detect season and inject theme
+        run: |
+          python3 - <<'PYEOF'
+          import datetime, json, re
+
+          today = datetime.date.today()
+
+          # CNY dates by year
+          CNY = {2027: datetime.date(2027,2,6), 2026: datetime.date(2026,2,17), 2025: datetime.date(2025,1,29)}
+          MID_AUTUMN = {2026: datetime.date(2026,9,25), 2027: datetime.date(2027,10,15)}
+          DRAGON_BOAT = {2026: datetime.date(2026,6,19), 2027: datetime.date(2027,6,9)}
+
+          year = today.year
+          cny = CNY.get(year) or CNY.get(year-1)
+
+          season = "default"
+          if cny:
+              delta = (today - cny).days
+              if -30 <= delta <= -1:
+                  season = "pre_cny"
+              elif 0 <= delta <= 15:
+                  season = "cny"
+              elif 16 <= delta <= 30:
+                  season = "post_cny"
+
+          ma = MID_AUTUMN.get(year)
+          if ma and abs((today - ma).days) <= 3:
+              season = "mid_autumn"
+
+          db = DRAGON_BOAT.get(year)
+          if db and abs((today - db).days) <= 2:
+              season = "dragon_boat"
+
+          THEMES = {
+              "default":     {"--gold":"#c9a84c", "--ink":"#1a1a2e", "--red":"#c0392b", "--parchment":"#fdf6e3", "badge":"Chinese Culture Lab", "hero_note":""},
+              "pre_cny":     {"--gold":"#FFD700", "--ink":"#8B0000", "--red":"#DC143C", "--parchment":"#fff8e1", "badge":"🏮 CNY 2027 Countdown", "hero_note":"Chinese New Year is coming!"},
+              "cny":         {"--gold":"#FFD700", "--ink":"#8B0000", "--red":"#DC143C", "--parchment":"#fff5f5", "badge":"🎊 Happy New Year 新年快乐", "hero_note":"恭喜发财 · Happy Year of the Goat!"},
+              "post_cny":    {"--gold":"#c9a84c", "--ink":"#1a1a2e", "--red":"#c0392b", "--parchment":"#fdf6e3", "badge":"🧧 Post-CNY Deals", "hero_note":""},
+              "mid_autumn":  {"--gold":"#F4A460", "--ink":"#2F4F4F", "--red":"#8B4513", "--parchment":"#fff8dc", "badge":"🥮 Mid-Autumn Festival", "hero_note":"Happy Mid-Autumn Festival!"},
+              "dragon_boat": {"--gold":"#228B22", "--ink":"#1a1a2e", "--red":"#006400", "--parchment":"#f0fff0", "badge":"🐉 Dragon Boat Festival", "hero_note":"端午节快乐!"},
+          }
+
+          theme = THEMES[season]
+          print(f"Season: {season}")
+
+          # Write season file for reference
+          with open("data/season.json", "w") as f:
+              json.dump({"season": season, "date": str(today), "theme": theme}, f, indent=2)
+          PYEOF
+
+      - name: Commit season data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/season.json
+          git diff --staged --quiet || git commit -m "chore: seasonal theme → $(python3 -c "import json; print(json.load(open('data/season.json'))['season'])")"
+          git push
