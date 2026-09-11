@@ -80,6 +80,37 @@ def check_sitemap(base_url):
     except Exception as e:
         return {"ok": False, "error": str(e)}
 
+def check_orphans(base_url):
+    """Find pages in sitemap not linked internally, and internal links missing from sitemap."""
+    try:
+        import re, urllib.parse
+        # Fetch sitemap URLs
+        sitemap_url = base_url.rstrip('/') + '/sitemap.xml'
+        r = requests.get(sitemap_url, headers=HEADERS, timeout=10)
+        sitemap_urls = set(re.findall(r'<loc>(.*?)</loc>', r.text))
+
+        # Fetch homepage + crawl one level of internal links
+        r2 = requests.get(base_url, headers=HEADERS, timeout=15)
+        soup = BeautifulSoup(r2.text, 'lxml')
+        domain = urllib.parse.urlparse(base_url).netloc
+        linked = set()
+        for a in soup.find_all('a', href=True):
+            href = urllib.parse.urljoin(base_url, a['href'])
+            parsed = urllib.parse.urlparse(href)
+            if parsed.netloc == domain:
+                clean = f"{parsed.scheme}://{parsed.netloc}{parsed.path.rstrip('/')}/"
+                linked.add(clean)
+
+        in_sitemap_not_linked = [u for u in sitemap_urls if u.rstrip('/') + '/' not in linked and u not in linked]
+        linked_not_in_sitemap = [u for u in linked if u not in sitemap_urls and u.rstrip('/') + '/' not in sitemap_urls
+                                  and u != base_url and u != base_url.rstrip('/') + '/']
+        return {
+            'orphans_in_sitemap': in_sitemap_not_linked[:10],
+            'linked_missing_from_sitemap': linked_not_in_sitemap[:10],
+        }
+    except Exception as e:
+        return {'error': str(e)}
+
 def main():
     site_filter = os.environ.get('SITE_FILTER', 'all')
     sites = SITES if site_filter == 'all' else [s for s in SITES if site_filter in s['name']]
@@ -93,8 +124,16 @@ def main():
         print(f"\n{site['name']} ...")
         result = audit_page(site['url'])
         result['sitemap'] = check_sitemap(site['url'])
+        result['orphans'] = check_orphans(site['url'])
         result['site_name'] = site['name']
         results.append(result)
+
+        # Print orphan report
+        orphans = result.get('orphans', {})
+        if orphans.get('orphans_in_sitemap'):
+            print(f"  🔍 Sitemap orphans (not linked from homepage): {len(orphans['orphans_in_sitemap'])}")
+        if orphans.get('linked_missing_from_sitemap'):
+            print(f"  ⚠️  Linked but not in sitemap: {len(orphans['linked_missing_from_sitemap'])}")
 
         if result['issues']:
             for issue in result['issues']:

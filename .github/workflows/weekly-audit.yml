@@ -27,6 +27,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
       - name: Install deps
         run: pip install requests beautifulsoup4 lxml
 
@@ -46,6 +51,16 @@ jobs:
           name: audit-${{ github.run_number }}
           path: reports/
           retention-days: 90
+
+      - name: Upload failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-${{ github.run_number }}
+          path: |
+            reports/
+            *.log
+          retention-days: 30
 
       - name: Commit report index
         run: |

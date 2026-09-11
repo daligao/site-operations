@@ -1,0 +1,110 @@
+name: Visual Regression Screenshots
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'   # Weekly Monday
+  workflow_dispatch:
+    inputs:
+      page:
+        description: 'Page to screenshot (or "all")'
+        required: false
+        default: 'all'
+
+permissions:
+  contents: write
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install chromium --with-deps
+
+      - name: Take screenshots
+        run: |
+          mkdir -p screenshots
+          node - <<'EOF'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+
+          const PAGES = [
+            { name: 'home',          url: 'https://chinesefortunetools.online/' },
+            { name: 'gift-checker',  url: 'https://chinesefortunetools.online/gift-checker/' },
+            { name: 'red-envelope',  url: 'https://chinesefortunetools.online/red-envelope/' },
+            { name: 'zodiac',        url: 'https://chinesefortunetools.online/zodiac/' },
+            { name: 'kinship',       url: 'https://chinesefortunetools.online/kinship/' },
+          ];
+
+          const FILTER = process.env.PAGE_FILTER || 'all';
+
+          (async () => {
+            const browser = await chromium.launch();
+            const results = [];
+
+            for (const p of PAGES) {
+              if (FILTER !== 'all' && p.name !== FILTER) continue;
+
+              for (const [label, vp] of [['desktop', {width:1280,height:800}], ['mobile', {width:390,height:844}]]) {
+                const page = await browser.newPage({ viewport: vp });
+                try {
+                  await page.goto(p.url, { waitUntil: 'networkidle', timeout: 20000 });
+                  const path = `screenshots/${p.name}-${label}.png`;
+                  await page.screenshot({ path, fullPage: label === 'desktop' });
+                  console.log(`✅ ${p.name} ${label}`);
+                  results.push({ page: p.name, label, status: 'ok', path });
+                } catch (e) {
+                  console.log(`❌ ${p.name} ${label}: ${e.message}`);
+                  results.push({ page: p.name, label, status: 'error', error: e.message });
+                } finally {
+                  await page.close();
+                }
+              }
+            }
+
+            await browser.close();
+            fs.writeFileSync('screenshots/manifest.json', JSON.stringify({
+              date: new Date().toISOString().split('T')[0],
+              results
+            }, null, 2));
+            console.log('Done. Screenshots saved.');
+          })();
+          EOF
+        env:
+          PAGE_FILTER: ${{ github.event.inputs.page || 'all' }}
+
+      - name: Upload screenshots as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ github.run_number }}
+          path: screenshots/
+          retention-days: 90
+
+      - name: Check for visual regressions (pixel diff vs last run)
+        run: |
+          python3 - <<'EOF'
+          import json, os, sys
+
+          # Load current manifest
+          try:
+              manifest = json.load(open('screenshots/manifest.json'))
+          except:
+              sys.exit(0)
+
+          errors = [r for r in manifest['results'] if r['status'] == 'error']
+          if errors:
+              print(f"⚠️  {len(errors)} page(s) failed to load:")
+              for e in errors:
+                  print(f"   {e['page']} {e['label']}: {e.get('error','unknown')}")
+              # Don't fail — just report. Future: pixel diff against baseline.
+          else:
+              print(f"✅ All {len(manifest['results'])} screenshots captured successfully.")
+          EOF

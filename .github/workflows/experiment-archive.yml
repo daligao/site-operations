@@ -1,0 +1,26 @@
+name: Experiment Archive Generator
+
+on:
+  schedule:
+    - cron: '0 5 1 * *'   # 1st of every month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate experiment archive
+        run: python3 scripts/experiment-archive.py
+
+      - name: Commit archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/experiment-archive.json
+          git diff --staged --quiet || git commit -m "archive: monthly experiment snapshot $(date +%Y-%m-%d) [skip ci]"
+          git push
