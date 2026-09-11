@@ -1,0 +1,36 @@
+name: Content Expiry Check
+
+on:
+  schedule:
+    - cron: '0 3 * * 3'   # Every Wednesday 03:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install deps
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Run expiry check
+        run: python3 scripts/expiry_check.py
+
+      - name: Create GitHub Issues for stale content
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -f reports/stale_pages.txt ]; then
+            while IFS= read -r line; do
+              gh issue create \
+                --title "Review required: $line" \
+                --body "Content expiry check flagged this page as potentially stale. Please review and update." \
+                --label "content-review" \
+                --repo "$REPO" || true
+            done < reports/stale_pages.txt
+          fi

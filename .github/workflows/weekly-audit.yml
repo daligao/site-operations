@@ -1,0 +1,51 @@
+name: Weekly Site Audit
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'   # Every Monday 02:00 UTC
+  workflow_dispatch:
+    inputs:
+      site:
+        description: 'Site to audit (or "all")'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - chinesefortunetools.online
+          - chinesefortunetools.com
+          - chinarules101.com
+          - chinesenamecraft.com
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install deps
+        run: pip install requests beautifulsoup4 lxml
+
+      - name: Run audit
+        env:
+          SITE_FILTER: ${{ github.event.inputs.site || 'all' }}
+        run: python3 scripts/audit.py
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-${{ github.run_number }}
+          path: reports/
+          retention-days: 90
+
+      - name: Commit report index
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          git diff --staged --quiet || git commit -m "audit: weekly report $(date +%Y-%m-%d) [skip ci]"
+          git push

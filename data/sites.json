@@ -1,0 +1,33 @@
+{
+  "sites": [
+    {
+      "name": "chinesefortunetools.online",
+      "url": "https://chinesefortunetools.online/",
+      "repo": "daligao/year-of-goat-2027",
+      "platform": "github-pages",
+      "ga4": "G-GZSPJFQ6FR",
+      "type": "tool-lab"
+    },
+    {
+      "name": "chinesefortunetools.com",
+      "url": "https://chinesefortunetools.com/",
+      "platform": "hostinger-php",
+      "ga4": "G-GZSPJFQ6FR",
+      "type": "main-site"
+    },
+    {
+      "name": "chinarules101.com",
+      "url": "https://chinarules101.com/",
+      "platform": "hostinger-php",
+      "ga4": "G-ZVM53M7TZF",
+      "type": "main-site"
+    },
+    {
+      "name": "chinesenamecraft.com",
+      "url": "https://chinesenamecraft.com/",
+      "platform": "hostinger-php",
+      "ga4": "G-3YMJT3PCB1",
+      "type": "main-site"
+    }
+  ]
+}
