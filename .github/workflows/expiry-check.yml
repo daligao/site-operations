@@ -23,10 +23,12 @@ jobs:
           python3 - <<'EOF'
           import json, subprocess, os, datetime
 
+          import urllib.request
           try:
-              data = json.load(open('../year-of-goat-2027/data/tools.json'))
-          except:
-              print("Cannot read tools.json"); exit(0)
+              url = 'https://raw.githubusercontent.com/daligao/year-of-goat-2027/main/data/tools.json'
+              with urllib.request.urlopen(url) as r: data = json.loads(r.read())
+          except Exception as e:
+              print(f"Cannot fetch tools.json: {e}"); exit(0)
 
           today = datetime.date.today()
           for t in data['tools']:

@@ -23,12 +23,13 @@ jobs:
           python3 - <<'EOF'
           import json, subprocess, os, datetime
 
+          import urllib.request
+          BASE = 'https://raw.githubusercontent.com/daligao/year-of-goat-2027/main/data'
           try:
-              metrics = json.load(open('../year-of-goat-2027/data/metrics.json'))
-              tools   = json.load(open('../year-of-goat-2027/data/tools.json'))['tools']
-          except:
-              print("Cannot read data files — run from monorepo context")
-              exit(0)
+              with urllib.request.urlopen(f'{BASE}/metrics.json') as r: metrics = json.loads(r.read())
+              with urllib.request.urlopen(f'{BASE}/tools.json')   as r: tools   = json.loads(r.read())['tools']
+          except Exception as e:
+              print(f"Cannot fetch data: {e}"); exit(0)
 
           thresh = metrics['graduation_thresholds']
           tool_map = {t['id']: t for t in tools}
