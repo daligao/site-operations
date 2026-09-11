@@ -4,11 +4,8 @@
     {
       "url": "https://chinesefortunetools.online/",
       "status": 200,
-      "title": "2027 Year of the Goat \u2014 Chinese Zodiac Fortune, Lucky Signs & Feng Shui Guide",
-      "issues": [
-        "Title too long (77 chars, max 70)",
-        "Description too long (212 chars)"
-      ],
+      "title": "2027 Year of the Goat \u2014 Chinese Zodiac Fortune & Feng Shui Guide",
+      "issues": [],
       "sitemap": {
         "ok": true,
         "count": 5
@@ -17,13 +14,14 @@
     },
     {
       "url": "https://chinesefortunetools.com/",
-      "status": "error",
+      "status": 200,
+      "title": "ChineseFortuneTools \u2014 Chinese Horoscope, Zodiac & BaZi Tools",
       "issues": [
-        "HTTPSConnectionPool(host='chinesefortunetools.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f62846938c0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))"
+        "Description too long (180 chars)"
       ],
       "sitemap": {
-        "ok": false,
-        "error": "HTTPSConnectionPool(host='chinesefortunetools.com', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f6283f77110>: Failed to establish a new connection: [Errno 101] Network is unreachable'))"
+        "ok": true,
+        "count": 597
       },
       "site_name": "chinesefortunetools.com"
     },
@@ -40,13 +38,12 @@
     },
     {
       "url": "https://chinesenamecraft.com/",
-      "status": "error",
-      "issues": [
-        "HTTPSConnectionPool(host='chinesenamecraft.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f6283f77b30>, 'Connection to chinesenamecraft.com timed out. (connect timeout=15)'))"
-      ],
+      "status": 200,
+      "title": "Chinese Name Generator \u2014 Find Your Chinese Name | ChineseNameCraft",
+      "issues": [],
       "sitemap": {
-        "ok": false,
-        "error": "HTTPSConnectionPool(host='chinesenamecraft.com', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f6283f665d0>, 'Connection to chinesenamecraft.com timed out. (connect timeout=10)'))"
+        "ok": true,
+        "count": 974
       },
       "site_name": "chinesenamecraft.com"
     }
