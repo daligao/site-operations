@@ -1,0 +1,42 @@
+name: SEO Opportunity Bot
+
+on:
+  schedule:
+    - cron: '0 9 * * 2'   # Tuesday 09:00 UTC, after Monday's GA4/GSC pull
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  seo-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - run: pip install -r requirements.txt
+
+      - name: Check GSC data exists
+        run: |
+          if [ ! -f data/gsc_latest.json ]; then
+            echo "No GSC data found. Run GA4+GSC pull first."
+            exit 1
+          fi
+
+      - name: Run SEO opportunity bot
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: daligao/year-of-goat-2027
+        run: python3 scripts/seo_opportunity_bot.py
+
+      - name: Run programmatic SEO monitor
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: daligao/year-of-goat-2027
+        run: python3 scripts/programmatic_seo_monitor.py

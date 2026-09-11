@@ -1,0 +1,26 @@
+name: Reusable — Security Check
+
+on:
+  workflow_call:
+    inputs:
+      scan_language:
+        required: false
+        type: string
+        default: 'javascript'
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ inputs.scan_language }}
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3

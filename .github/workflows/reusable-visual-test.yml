@@ -1,0 +1,53 @@
+name: Reusable — Visual Regression
+
+on:
+  workflow_call:
+    inputs:
+      base_url:
+        required: true
+        type: string
+      pages:
+        required: false
+        type: string
+        default: '/'
+      retention_days:
+        required: false
+        type: number
+        default: 30
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright
+        run: |
+          npm install -g playwright
+          npx playwright install chromium --with-deps
+
+      - name: Capture screenshots
+        run: |
+          mkdir -p /tmp/screenshots
+          IFS=',' read -ra PAGES <<< "${{ inputs.pages }}"
+          for PAGE in "${PAGES[@]}"; do
+            SLUG=$(echo "$PAGE" | tr '/' '-' | sed 's/^-//' | sed 's/-$//')
+            [ -z "$SLUG" ] && SLUG="home"
+            npx playwright screenshot --browser chromium \
+              --viewport-size "1280,900" \
+              "${{ inputs.base_url }}$PAGE" "/tmp/screenshots/${SLUG}-desktop.png" 2>/dev/null || true
+            npx playwright screenshot --browser chromium \
+              --viewport-size "390,844" \
+              "${{ inputs.base_url }}$PAGE" "/tmp/screenshots/${SLUG}-mobile.png" 2>/dev/null || true
+          done
+
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ github.run_id }}
+          path: /tmp/screenshots/
+          retention-days: ${{ inputs.retention_days }}

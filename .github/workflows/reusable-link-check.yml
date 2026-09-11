@@ -1,0 +1,61 @@
+name: Reusable — Link Check
+
+on:
+  workflow_call:
+    inputs:
+      base_url:
+        required: false
+        type: string
+        default: ''
+      local_dir:
+        required: false
+        type: string
+        default: '.'
+      fail_on_error:
+        required: false
+        type: boolean
+        default: true
+    outputs:
+      broken_count:
+        description: Number of broken links found
+        value: ${{ jobs.link-check.outputs.broken_count }}
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    outputs:
+      broken_count: ${{ steps.check.outputs.broken_count }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install lychee
+        run: |
+          curl -sSLf https://github.com/lycheeverse/lychee/releases/latest/download/lychee-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          chmod +x lychee && sudo mv lychee /usr/local/bin/
+
+      - name: Run link check
+        id: check
+        continue-on-error: ${{ !inputs.fail_on_error }}
+        run: |
+          if [ -n "${{ inputs.base_url }}" ]; then
+            lychee --verbose --no-progress --timeout 20 --retry-wait-time 2 \
+              --exclude "localhost" --exclude "127.0.0.1" \
+              --format markdown --output /tmp/lychee-report.md \
+              "${{ inputs.base_url }}" || true
+          else
+            lychee --verbose --no-progress --timeout 20 \
+              --exclude "localhost" --exclude "127.0.0.1" \
+              --format markdown --output /tmp/lychee-report.md \
+              "${{ inputs.local_dir }}/**/*.html" 2>/dev/null || true
+          fi
+          COUNT=$(grep -c "^\[" /tmp/lychee-report.md 2>/dev/null || echo 0)
+          echo "broken_count=$COUNT" >> $GITHUB_OUTPUT
+          cat /tmp/lychee-report.md || true
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check-report-${{ github.run_id }}
+          path: /tmp/lychee-report.md
+          retention-days: 14

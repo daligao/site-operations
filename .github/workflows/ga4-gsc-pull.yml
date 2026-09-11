@@ -1,0 +1,70 @@
+name: GA4 + GSC Daily Metrics Pull
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # 06:00 UTC daily (after GA4 data settles)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - run: pip install -r requirements.txt
+
+      - name: Pull GA4 data
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p data
+          python3 scripts/ga4_pull.py > data/ga4_latest.json
+
+      - name: Pull GSC data
+        env:
+          GSC_SITE_URL: ${{ secrets.GSC_SITE_URL }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: python3 scripts/gsc_pull.py > data/gsc_latest.json
+
+      - name: Merge into metrics.json and push to goat repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          python3 scripts/metrics_update.py
+          # Push metrics.json to year-of-goat-2027
+          METRICS=$(cat data/metrics.json | base64 | tr -d '\n')
+          CURRENT_SHA=$(curl -sf -H "Authorization: Bearer $GITHUB_TOKEN" \
+            "https://api.github.com/repos/daligao/year-of-goat-2027/contents/data/metrics.json" \
+            | python3 -c "import sys,json; d=json.load(sys.stdin); print(d.get('sha',''))" 2>/dev/null || echo "")
+          BODY="{\"message\":\"chore: daily metrics update $(date -u +%Y-%m-%d) [skip ci]\",\"content\":\"$METRICS\""
+          if [ -n "$CURRENT_SHA" ]; then BODY="$BODY,\"sha\":\"$CURRENT_SHA\""; fi
+          BODY="$BODY}"
+          curl -sf -X PUT -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Content-Type: application/json" \
+            "https://api.github.com/repos/daligao/year-of-goat-2027/contents/data/metrics.json" \
+            -d "$BODY"
+
+      - name: Commit raw data (for bot scripts)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ga4_latest.json data/gsc_latest.json data/metrics.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "chore: ga4+gsc data $(date -u +%Y-%m-%d) [skip ci]"
+          git push
+
+      - name: Upload raw data as artifact (30 days)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: metrics-${{ github.run_id }}
+          path: data/
+          retention-days: 30

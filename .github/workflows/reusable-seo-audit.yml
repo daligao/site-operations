@@ -1,0 +1,42 @@
+name: Reusable — SEO Audit
+
+on:
+  workflow_call:
+    inputs:
+      base_url:
+        required: true
+        type: string
+      fail_on_error:
+        required: false
+        type: boolean
+        default: true
+    outputs:
+      issues_found:
+        description: Number of SEO issues found
+        value: ${{ jobs.seo-audit.outputs.issues_found }}
+
+jobs:
+  seo-audit:
+    runs-on: ubuntu-latest
+    outputs:
+      issues_found: ${{ steps.audit.outputs.issues_found }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - run: pip install -r requirements.txt
+
+      - name: Run SEO audit
+        id: audit
+        continue-on-error: ${{ !inputs.fail_on_error }}
+        run: |
+          COUNT=$(python3 scripts/audit.py ${{ inputs.base_url }} 2>&1 | grep -c "FAIL" || true)
+          echo "issues_found=$COUNT" >> $GITHUB_OUTPUT
+          if [ "$COUNT" -gt "0" ] && [ "${{ inputs.fail_on_error }}" = "true" ]; then
+            echo "SEO audit found $COUNT issues"
+            exit 1
+          fi
