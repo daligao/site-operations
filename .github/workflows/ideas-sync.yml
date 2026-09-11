@@ -1,0 +1,85 @@
+name: Ideas Board Sync
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # Every 30 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: daligao/year-of-goat-2027
+          token: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+
+      - name: Fetch ideas from GitHub Issues and generate ideas.json
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'EOF'
+          import json, urllib.request, os, datetime
+
+          TOKEN = os.environ.get('GH_TOKEN', '')
+          REPO  = 'daligao/year-of-goat-2027'
+
+          def api(path):
+              req = urllib.request.Request(
+                  f'https://api.github.com{path}',
+                  headers={
+                      'Authorization': f'Bearer {TOKEN}',
+                      'Accept': 'application/vnd.github+json',
+                      'X-GitHub-Api-Version': '2022-11-28',
+                  }
+              )
+              with urllib.request.urlopen(req, timeout=10) as r:
+                  return json.loads(r.read())
+
+          # Fetch open issues with label 'idea'
+          try:
+              issues = api(f'/repos/{REPO}/issues?labels=idea&state=open&per_page=50&sort=reactions&direction=desc')
+          except Exception as e:
+              print(f"API error: {e}"); exit(0)
+
+          ideas = []
+          for i in issues:
+              if i.get('pull_request'): continue
+              reactions = i.get('reactions', {})
+              votes = reactions.get('+1', 0) + reactions.get('heart', 0) + reactions.get('hooray', 0) + reactions.get('rocket', 0)
+              ideas.append({
+                  'id': i['number'],
+                  'title': i['title'],
+                  'votes': votes,
+                  'comments': i.get('comments', 0),
+                  'url': i['html_url'],
+                  'created': i['created_at'][:10],
+                  'labels': [l['name'] for l in i.get('labels', []) if l['name'] != 'idea'],
+              })
+
+          ideas.sort(key=lambda x: x['votes'], reverse=True)
+
+          result = {
+              '_note': 'Community tool ideas voted via GitHub Issues. Updated every 30 min.',
+              '_updated': str(datetime.datetime.utcnow())[:16] + 'Z',
+              '_vote_url': f'https://github.com/{REPO}/issues?labels=idea',
+              '_submit_url': f'https://github.com/{REPO}/issues/new?labels=idea&title=Tool+idea%3A+',
+              'total': len(ideas),
+              'ideas': ideas
+          }
+
+          with open('data/ideas.json', 'w') as f:
+              json.dump(result, f, indent=2)
+          print(f"ideas.json: {len(ideas)} ideas synced")
+          EOF
+
+      - name: Commit ideas.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ideas.json
+          git diff --staged --quiet || git commit -m "data: sync ideas.json from GitHub Issues [skip ci]"
+          git push
