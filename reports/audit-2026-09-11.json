@@ -17,13 +17,13 @@
     },
     {
       "url": "https://chinesefortunetools.com/",
-      "status": 403,
+      "status": "error",
       "issues": [
-        "HTTP 403"
+        "HTTPSConnectionPool(host='chinesefortunetools.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f62846938c0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))"
       ],
       "sitemap": {
         "ok": false,
-        "status": 403
+        "error": "HTTPSConnectionPool(host='chinesefortunetools.com', port=443): Max retries exceeded with url: /sitemap.xml (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f6283f77110>: Failed to establish a new connection: [Errno 101] Network is unreachable'))"
       },
       "site_name": "chinesefortunetools.com"
     },
@@ -40,12 +40,13 @@
     },
     {
       "url": "https://chinesenamecraft.com/",
-      "status": 200,
-      "title": "Chinese Name Generator \u2014 Find Your Chinese Name | ChineseNameCraft",
-      "issues": [],
+      "status": "error",
+      "issues": [
+        "HTTPSConnectionPool(host='chinesenamecraft.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f6283f77b30>, 'Connection to chinesenamecraft.com timed out. (connect timeout=15)'))"
+      ],
       "sitemap": {
-        "ok": true,
-        "count": 974
+        "ok": false,
+        "error": "HTTPSConnectionPool(host='chinesenamecraft.com', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f6283f665d0>, 'Connection to chinesenamecraft.com timed out. (connect timeout=10)'))"
       },
       "site_name": "chinesenamecraft.com"
     }
