@@ -1,4 +1,16 @@
 {
-  "date": "2026-09-12",
-  "tools": []
+  "date": "2026-09-13",
+  "tools": [
+    {
+      "id": "gift-checker",
+      "uv_30d": 1,
+      "sessions_30d": 1,
+      "tool_start": 0,
+      "tool_complete": 0,
+      "share_result": 0,
+      "completion_rate": 0,
+      "share_rate": 0.0,
+      "click_to_main": 0
+    }
+  ]
 }
