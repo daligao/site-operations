@@ -1,0 +1,17 @@
+{
+  "week": "2026-09-14",
+  "generated": "2026-09-14",
+  "entries": {
+    "launches": [
+      "\ud83e\uddea New experiment: \ud83c\udfee Chinese Festival Countdown (/festival-countdown/)",
+      "\ud83e\uddea New experiment: \ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 Chinese Family Title Finder (/kinship/)",
+      "\ud83e\uddea New experiment: \ud83d\udc09 Exact Zodiac Calculator (/zodiac/)",
+      "\ud83e\uddea New experiment: \ud83e\udde7 Red Envelope Calculator (/red-envelope/)",
+      "\ud83e\uddea New experiment: \ud83c\udf81 Can I Give This in China? (/gift-checker/)"
+    ],
+    "improvements": [],
+    "fixes": [],
+    "retirements": []
+  },
+  "total_changes": 5
+}
