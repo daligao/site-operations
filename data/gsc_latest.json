@@ -1,14 +1,14 @@
 {
-  "date": "2026-09-15",
+  "date": "2026-09-16",
   "site": "sc-domain:chinesefortunetools.online",
   "date_range_days": 28,
   "by_tool": {
     "homepage": {
-      "impressions": 1,
+      "impressions": 2,
       "clicks": 0,
       "ctr": 0.0,
       "position": 0,
-      "avg_position": 9.0
+      "avg_position": 6.0
     }
   },
   "queries": []

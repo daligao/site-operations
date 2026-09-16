@@ -1,6 +1,6 @@
 {
   "_note": "Auto-updated daily from GA4 + GSC. Do not edit manually.",
-  "_updated": "2026-09-15",
+  "_updated": "2026-09-16",
   "_source": "ga4+gsc",
   "tools": [
     {
@@ -52,6 +52,13 @@
         },
         {
           "date": "2026-09-15",
+          "uv_30d": 1,
+          "experiment_score": 0.0,
+          "gsc_impressions": 0,
+          "gsc_clicks": 0
+        },
+        {
+          "date": "2026-09-16",
           "uv_30d": 1,
           "experiment_score": 0.0,
           "gsc_impressions": 0,
@@ -112,6 +119,13 @@
           "experiment_score": 0.0,
           "gsc_impressions": 0,
           "gsc_clicks": 0
+        },
+        {
+          "date": "2026-09-16",
+          "uv_30d": 0,
+          "experiment_score": 0.0,
+          "gsc_impressions": 0,
+          "gsc_clicks": 0
         }
       ]
     },
@@ -164,6 +178,13 @@
         },
         {
           "date": "2026-09-15",
+          "uv_30d": 0,
+          "experiment_score": 0.0,
+          "gsc_impressions": 0,
+          "gsc_clicks": 0
+        },
+        {
+          "date": "2026-09-16",
           "uv_30d": 0,
           "experiment_score": 0.0,
           "gsc_impressions": 0,
@@ -224,6 +245,13 @@
           "experiment_score": 0.0,
           "gsc_impressions": 0,
           "gsc_clicks": 0
+        },
+        {
+          "date": "2026-09-16",
+          "uv_30d": 0,
+          "experiment_score": 0.0,
+          "gsc_impressions": 0,
+          "gsc_clicks": 0
         }
       ]
     },
@@ -276,6 +304,13 @@
         },
         {
           "date": "2026-09-15",
+          "uv_30d": 0,
+          "experiment_score": 0.0,
+          "gsc_impressions": 0,
+          "gsc_clicks": 0
+        },
+        {
+          "date": "2026-09-16",
           "uv_30d": 0,
           "experiment_score": 0.0,
           "gsc_impressions": 0,
