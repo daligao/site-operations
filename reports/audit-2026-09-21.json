@@ -1,0 +1,129 @@
+{
+  "date": "2026-09-21",
+  "sites": [
+    {
+      "url": "https://chinesefortunetools.online/",
+      "status": 200,
+      "title": "2027 Year of the Goat \u2014 Chinese Zodiac Fortune & Feng Shui Guide",
+      "issues": [],
+      "sitemap": {
+        "ok": true,
+        "count": 31
+      },
+      "orphans": {
+        "orphans_in_sitemap": [
+          "https://chinesefortunetools.online/2027/monkey/",
+          "https://chinesefortunetools.online/2027/ox/",
+          "https://chinesefortunetools.online/2027/rabbit/",
+          "https://chinesefortunetools.online/2027/snake/",
+          "https://chinesefortunetools.online/2027/tiger/",
+          "https://chinesefortunetools.online/",
+          "https://chinesefortunetools.online/2027/horse/",
+          "https://chinesefortunetools.online/2027/dragon/",
+          "https://chinesefortunetools.online/2027/rooster/",
+          "https://chinesefortunetools.online/2027/dog/"
+        ],
+        "linked_missing_from_sitemap": [
+          "https://chinesefortunetools.online/data/tools.json/",
+          "https://chinesefortunetools.online/sitemap.xml/",
+          "https://chinesefortunetools.online/data/zodiac.json/",
+          "https://chinesefortunetools.online/data/festivals.json/"
+        ]
+      },
+      "site_name": "chinesefortunetools.online"
+    },
+    {
+      "url": "https://chinesefortunetools.com/",
+      "status": 200,
+      "title": "ChineseFortuneTools \u2014 Chinese Horoscope, Zodiac & BaZi Tools",
+      "issues": [],
+      "sitemap": {
+        "ok": true,
+        "count": 44
+      },
+      "orphans": {
+        "orphans_in_sitemap": [
+          "https://chinesefortunetools.com/auspicious-dates/2027/travel/",
+          "https://chinesefortunetools.com/2027/tai-sui/",
+          "https://chinesefortunetools.com/chinese-new-year-2027/",
+          "https://chinesefortunetools.com/auspicious-dates/2027/wedding/",
+          "https://chinesefortunetools.com/english-name-chinese-philosophy/",
+          "https://chinesefortunetools.com/chinese-new-year-2026/",
+          "https://chinesefortunetools.com/about/",
+          "https://chinesefortunetools.com/lucky-numbers/",
+          "https://chinesefortunetools.com/auspicious-dates/2027/pray/",
+          "https://chinesefortunetools.com/chinese-wisdom/"
+        ],
+        "linked_missing_from_sitemap": [
+          "https://chinesefortunetools.com/chinese-zodiac/rat/",
+          "https://chinesefortunetools.com/chinese-zodiac/pig/",
+          "https://chinesefortunetools.com/chinese-zodiac/ox/",
+          "https://chinesefortunetools.com/chinese-zodiac/shadow-quiz/",
+          "https://chinesefortunetools.com/chinese-zodiac/tiger/",
+          "https://chinesefortunetools.com/zodiac-games/season/",
+          "https://chinesefortunetools.com/chinese-zodiac/dog/",
+          "https://chinesefortunetools.com/chinese-zodiac/goat/",
+          "https://chinesefortunetools.com/good-luck/companion/",
+          "https://chinesefortunetools.com/chinese-zodiac/monkey/"
+        ]
+      },
+      "site_name": "chinesefortunetools.com"
+    },
+    {
+      "url": "https://chinarules101.com/",
+      "status": 200,
+      "title": "China Rules 101 \u2014 Chinese Etiquette, Gifts & Customs for Foreigners",
+      "issues": [],
+      "sitemap": {
+        "ok": true,
+        "count": 299
+      },
+      "orphans": {
+        "orphans_in_sitemap": [
+          "https://chinarules101.com/customs/chinese-modesty-culture-guide/",
+          "https://chinarules101.com/business/chinese-dinner-trust-building/",
+          "https://chinarules101.com/social/dont-critique-others-appearance/",
+          "https://chinarules101.com/etiquette/dont-say-hao-yao-fan-when-serving-rice/",
+          "https://chinarules101.com/social/chinese-social-debt-how-renqing-works/",
+          "https://chinarules101.com/business/reading-chinese-workplace-social-signals/",
+          "https://chinarules101.com/etiquette/cover-when-sneezing/",
+          "https://chinarules101.com/customs/wear-red-in-zodiac-birth-year/",
+          "https://chinarules101.com/gifts/mid-autumn-mooncakes/",
+          "https://chinarules101.com/etiquette/how-to-give-face-in-china/"
+        ],
+        "linked_missing_from_sitemap": [
+          "https://chinarules101.com/sitemap.xml/"
+        ]
+      },
+      "site_name": "chinarules101.com"
+    },
+    {
+      "url": "https://chinesenamecraft.com/",
+      "status": 200,
+      "title": "Chinese Name Generator \u2014 Find Your Chinese Name | ChineseNameCraft",
+      "issues": [],
+      "sitemap": {
+        "ok": true,
+        "count": 974
+      },
+      "orphans": {
+        "orphans_in_sitemap": [
+          "https://chinesenamecraft.com/your-name-in-china/frank/",
+          "https://chinesenamecraft.com/name-meaning/\u9686/",
+          "https://chinesenamecraft.com/names/caleb/",
+          "https://chinesenamecraft.com/name-meaning/\u94a7/",
+          "https://chinesenamecraft.com/name-meaning/\u632f/",
+          "https://chinesenamecraft.com/names/henry/",
+          "https://chinesenamecraft.com/names/audrey/",
+          "https://chinesenamecraft.com/names/felix/",
+          "https://chinesenamecraft.com/names/bryan/",
+          "https://chinesenamecraft.com/names/mason/"
+        ],
+        "linked_missing_from_sitemap": [
+          "https://chinesenamecraft.com/sitemap.xml/"
+        ]
+      },
+      "site_name": "chinesenamecraft.com"
+    }
+  ]
+}
