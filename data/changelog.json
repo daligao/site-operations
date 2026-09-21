@@ -1,17 +1,24 @@
 {
-  "week": "2026-09-14",
-  "generated": "2026-09-14",
+  "week": "2026-09-21",
+  "generated": "2026-09-21",
   "entries": {
     "launches": [
-      "\ud83e\uddea New experiment: \ud83c\udfee Chinese Festival Countdown (/festival-countdown/)",
-      "\ud83e\uddea New experiment: \ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66 Chinese Family Title Finder (/kinship/)",
-      "\ud83e\uddea New experiment: \ud83d\udc09 Exact Zodiac Calculator (/zodiac/)",
-      "\ud83e\uddea New experiment: \ud83e\udde7 Red Envelope Calculator (/red-envelope/)",
-      "\ud83e\uddea New experiment: \ud83c\udf81 Can I Give This in China? (/gift-checker/)"
+      "\ud83e\uddea New experiment: \ud83c\udde8\ud83c\uddf3 China Public Holidays 2027 (/2027-public-holidays-china/)",
+      "\ud83e\uddea New experiment: \ud83d\udccb Chinese Zodiac Years Chart (/chinese-zodiac-years-chart/)",
+      "\ud83e\uddea New experiment: \ud83e\udd5f Chinese New Year 2027 Food (/chinese-new-year-2027-food/)",
+      "\ud83e\uddea New experiment: \ud83c\udf40 Lucky Numbers & Colors 2027 (/2027-lucky-numbers-colors/)",
+      "\ud83e\uddea New experiment: \ud83d\udd25 Year of the Fire Goat 2027 (/year-of-the-fire-goat-2027/)",
+      "\ud83e\uddea New experiment: \ud83d\uddd3 When Is Chinese New Year 2027? (/when-is-chinese-new-year-2027/)",
+      "\ud83e\uddea New experiment: \ud83c\udf86 New Year 2027 (/new-year-2027/)",
+      "\ud83e\uddea New experiment: \ud83c\udfaf Fire Goat Year Resolutions (/2027-goals/)",
+      "\ud83e\uddea New experiment: \ud83c\udfb4 Daily Zodiac Fortune Card (/daily-zodiac-card/)",
+      "\ud83e\uddea New experiment: \ud83e\udde7 Lucky Wishes (/red-envelope-open/)"
     ],
-    "improvements": [],
+    "improvements": [
+      "[year-of-goat-2027] PR: analytics: add GA4 G-HY5MJJP86Z across static pages"
+    ],
     "fixes": [],
     "retirements": []
   },
-  "total_changes": 5
+  "total_changes": 11
 }
