@@ -1,0 +1,418 @@
+{
+  "_note": "Monthly experiment archive. Each experiment card tracks full lifecycle.",
+  "generated": "2026-10-01",
+  "total": 15,
+  "by_status": {
+    "testing": 15,
+    "growing": 0,
+    "graduated": 0,
+    "retired": 0
+  },
+  "experiments": [
+    {
+      "id": "gift-checker",
+      "title": "Can I Give This in China?",
+      "emoji": "\ud83c\udf81",
+      "url": "/gift-checker/",
+      "funnel": "chinarules101.com/gifts/",
+      "hypothesis": "Type any gift to instantly find out if it's safe, risky, or taboo \u2014 with cultural explanations.",
+      "launched": "2026-09-11",
+      "duration_days": 20,
+      "status": "testing",
+      "priority": 0.9,
+      "latest_metrics": {
+        "uv_30d": 1,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 1,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "red-envelope",
+      "title": "Red Envelope Calculator",
+      "emoji": "\ud83e\udde7",
+      "url": "/red-envelope/",
+      "funnel": "chinarules101.com/gifts/chinese-wedding-red-envelope/",
+      "hypothesis": "Calculate the right amount for weddings, CNY, birthdays. Lucky amounts included.",
+      "launched": "2026-09-11",
+      "duration_days": 20,
+      "status": "testing",
+      "priority": 0.9,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "red-envelope-open",
+      "title": "Lucky Wishes",
+      "emoji": "\ud83e\udde7",
+      "url": "/red-envelope-open/",
+      "funnel": "chinesefortunetools.com/chinese-new-year-2026/",
+      "hypothesis": "Send a playful Lucky Wishes red envelope with a wish and a lucky number \u2014 no real money. They open it, then send one right back.",
+      "launched": "2026-09-20",
+      "duration_days": 11,
+      "status": "testing",
+      "priority": 0.8,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "zodiac",
+      "title": "Exact Zodiac Calculator",
+      "emoji": "\ud83d\udc09",
+      "url": "/zodiac/",
+      "funnel": "chinesefortunetools.com/chinese-zodiac/",
+      "hypothesis": "Most calculators get Jan/Feb birthdays wrong. Enter your full birth date for the accurate result.",
+      "launched": "2026-09-11",
+      "duration_days": 20,
+      "status": "testing",
+      "priority": 0.9,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "daily-zodiac-card",
+      "title": "Daily Zodiac Fortune Card",
+      "emoji": "\ud83c\udfb4",
+      "url": "/daily-zodiac-card/",
+      "funnel": "chinesefortunetools.com/chinese-zodiac/",
+      "hypothesis": "Enter your birth year and month for a free daily zodiac fortune card \u2014 3 themes, downloadable PNG, nothing stored.",
+      "launched": "2026-09-20",
+      "duration_days": 11,
+      "status": "testing",
+      "priority": 0.8,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "kinship",
+      "title": "Chinese Family Title Finder",
+      "emoji": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d\udc66",
+      "url": "/kinship/",
+      "funnel": "chinarules101.com/",
+      "hypothesis": "Click through the relationship chain to find the exact Chinese kinship title with pinyin.",
+      "launched": "2026-09-11",
+      "duration_days": 20,
+      "status": "testing",
+      "priority": 0.9,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "festival-countdown",
+      "title": "Chinese Festival Countdown",
+      "emoji": "\ud83c\udfee",
+      "url": "/festival-countdown/",
+      "funnel": "chinesefortunetools.com/",
+      "hypothesis": "Auto-detects the next upcoming Chinese festival and counts down the days with celebration tips.",
+      "launched": "2026-09-11",
+      "duration_days": 20,
+      "status": "testing",
+      "priority": 0.7,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "2027-goals",
+      "title": "Fire Goat Year Resolutions",
+      "emoji": "\ud83c\udfaf",
+      "url": "/2027-goals/",
+      "funnel": "cutdone.com/2027-goal-wall",
+      "hypothesis": "Why the Fire Goat year favours steady intention over new year hype, and a free anonymous wall to write your 2027 goal down.",
+      "launched": "2026-09-19",
+      "duration_days": 12,
+      "status": "testing",
+      "priority": 0.85,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "new-year-2027",
+      "title": "New Year 2027",
+      "emoji": "\ud83c\udf86",
+      "url": "/new-year-2027/",
+      "funnel": "cutdone.com/2027-goal-wall",
+      "hypothesis": "Live countdown to Jan 1 2027, worldwide New Year's Eve traditions, resolution ideas that stick, and quotes.",
+      "launched": "2026-09-19",
+      "duration_days": 12,
+      "status": "testing",
+      "priority": 0.85,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "when-is-chinese-new-year-2027",
+      "title": "When Is Chinese New Year 2027?",
+      "emoji": "\ud83d\uddd3",
+      "url": "/when-is-chinese-new-year-2027/",
+      "funnel": "cutdone.com/2027-goal-wall",
+      "hypothesis": "The exact date of Chinese New Year 2027, a live countdown, and why the date moves every year on the lunisolar calendar.",
+      "launched": "2026-09-20",
+      "duration_days": 11,
+      "status": "testing",
+      "priority": 0.8,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "year-of-the-fire-goat-2027",
+      "title": "Year of the Fire Goat 2027",
+      "emoji": "\ud83d\udd25",
+      "url": "/year-of-the-fire-goat-2027/",
+      "funnel": "cutdone.com/2027-goal-wall",
+      "hypothesis": "What a Fire Goat year means, why 2027 is different from other Goat years, and the general theme of the year ahead.",
+      "launched": "2026-09-20",
+      "duration_days": 11,
+      "status": "testing",
+      "priority": 0.8,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "2027-lucky-numbers-colors",
+      "title": "Lucky Numbers & Colors 2027",
+      "emoji": "\ud83c\udf40",
+      "url": "/2027-lucky-numbers-colors/",
+      "funnel": "cutdone.com/2027-goal-wall",
+      "hypothesis": "Traditional lucky numbers (2, 7) and colors (green, red, purple) for the 2027 Fire Goat year, plus what's traditionally unlucky.",
+      "launched": "2026-09-20",
+      "duration_days": 11,
+      "status": "testing",
+      "priority": 0.78,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "chinese-new-year-2027-food",
+      "title": "Chinese New Year 2027 Food",
+      "emoji": "\ud83e\udd5f",
+      "url": "/chinese-new-year-2027-food/",
+      "funnel": "cutdone.com/2027-goal-wall",
+      "hypothesis": "Classic Chinese New Year dishes and their symbolic meaning \u2014 fish, dumplings, spring rolls, nian gao, longevity noodles \u2014 plus foods to avoid.",
+      "launched": "2026-09-20",
+      "duration_days": 11,
+      "status": "testing",
+      "priority": 0.78,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "chinese-zodiac-years-chart",
+      "title": "Chinese Zodiac Years Chart",
+      "emoji": "\ud83d\udccb",
+      "url": "/chinese-zodiac-years-chart/",
+      "funnel": "cutdone.com/2027-goal-wall",
+      "hypothesis": "Full Chinese zodiac years reference chart from 1924 to 2031 \u2014 find your animal sign by birth year. 2027 is the Year of the Goat.",
+      "launched": "2026-09-20",
+      "duration_days": 11,
+      "status": "testing",
+      "priority": 0.8,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    },
+    {
+      "id": "2027-public-holidays-china",
+      "title": "China Public Holidays 2027",
+      "emoji": "\ud83c\udde8\ud83c\uddf3",
+      "url": "/2027-public-holidays-china/",
+      "funnel": "cutdone.com/2027-goal-wall",
+      "hypothesis": "Estimated 2027 China public holiday dates for Spring Festival, Qingming, Labour Day, Dragon Boat, Mid-Autumn and National Day golden weeks \u2014 official schedule not yet announced.",
+      "launched": "2026-09-20",
+      "duration_days": 11,
+      "status": "testing",
+      "priority": 0.75,
+      "latest_metrics": {
+        "uv_30d": 0,
+        "click_to_main": 0,
+        "share_count": 0
+      },
+      "history": [
+        {
+          "date": "2026-10-01",
+          "uv_30d": 0,
+          "click_to_main": 0,
+          "share_count": 0,
+          "status": "testing"
+        }
+      ],
+      "last_updated": "2026-10-01"
+    }
+  ]
+}
