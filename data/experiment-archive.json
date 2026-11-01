@@ -1,6 +1,6 @@
 {
   "_note": "Monthly experiment archive. Each experiment card tracks full lifecycle.",
-  "generated": "2026-10-01",
+  "generated": "2026-11-01",
   "total": 15,
   "by_status": {
     "testing": 15,
@@ -17,7 +17,7 @@
       "funnel": "chinarules101.com/gifts/",
       "hypothesis": "Type any gift to instantly find out if it's safe, risky, or taboo \u2014 with cultural explanations.",
       "launched": "2026-09-11",
-      "duration_days": 20,
+      "duration_days": 51,
       "status": "testing",
       "priority": 0.9,
       "latest_metrics": {
@@ -34,7 +34,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "red-envelope",
@@ -44,7 +44,7 @@
       "funnel": "chinarules101.com/gifts/chinese-wedding-red-envelope/",
       "hypothesis": "Calculate the right amount for weddings, CNY, birthdays. Lucky amounts included.",
       "launched": "2026-09-11",
-      "duration_days": 20,
+      "duration_days": 51,
       "status": "testing",
       "priority": 0.9,
       "latest_metrics": {
@@ -61,7 +61,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "red-envelope-open",
@@ -71,7 +71,7 @@
       "funnel": "chinesefortunetools.com/chinese-new-year-2026/",
       "hypothesis": "Send a playful Lucky Wishes red envelope with a wish and a lucky number \u2014 no real money. They open it, then send one right back.",
       "launched": "2026-09-20",
-      "duration_days": 11,
+      "duration_days": 42,
       "status": "testing",
       "priority": 0.8,
       "latest_metrics": {
@@ -88,7 +88,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "zodiac",
@@ -98,7 +98,7 @@
       "funnel": "chinesefortunetools.com/chinese-zodiac/",
       "hypothesis": "Most calculators get Jan/Feb birthdays wrong. Enter your full birth date for the accurate result.",
       "launched": "2026-09-11",
-      "duration_days": 20,
+      "duration_days": 51,
       "status": "testing",
       "priority": 0.9,
       "latest_metrics": {
@@ -115,7 +115,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "daily-zodiac-card",
@@ -125,7 +125,7 @@
       "funnel": "chinesefortunetools.com/chinese-zodiac/",
       "hypothesis": "Enter your birth year and month for a free daily zodiac fortune card \u2014 3 themes, downloadable PNG, nothing stored.",
       "launched": "2026-09-20",
-      "duration_days": 11,
+      "duration_days": 42,
       "status": "testing",
       "priority": 0.8,
       "latest_metrics": {
@@ -142,7 +142,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "kinship",
@@ -152,7 +152,7 @@
       "funnel": "chinarules101.com/",
       "hypothesis": "Click through the relationship chain to find the exact Chinese kinship title with pinyin.",
       "launched": "2026-09-11",
-      "duration_days": 20,
+      "duration_days": 51,
       "status": "testing",
       "priority": 0.9,
       "latest_metrics": {
@@ -169,7 +169,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "festival-countdown",
@@ -179,7 +179,7 @@
       "funnel": "chinesefortunetools.com/",
       "hypothesis": "Auto-detects the next upcoming Chinese festival and counts down the days with celebration tips.",
       "launched": "2026-09-11",
-      "duration_days": 20,
+      "duration_days": 51,
       "status": "testing",
       "priority": 0.7,
       "latest_metrics": {
@@ -196,7 +196,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "2027-goals",
@@ -206,7 +206,7 @@
       "funnel": "cutdone.com/2027-goal-wall",
       "hypothesis": "Why the Fire Goat year favours steady intention over new year hype, and a free anonymous wall to write your 2027 goal down.",
       "launched": "2026-09-19",
-      "duration_days": 12,
+      "duration_days": 43,
       "status": "testing",
       "priority": 0.85,
       "latest_metrics": {
@@ -223,7 +223,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "new-year-2027",
@@ -233,7 +233,7 @@
       "funnel": "cutdone.com/2027-goal-wall",
       "hypothesis": "Live countdown to Jan 1 2027, worldwide New Year's Eve traditions, resolution ideas that stick, and quotes.",
       "launched": "2026-09-19",
-      "duration_days": 12,
+      "duration_days": 43,
       "status": "testing",
       "priority": 0.85,
       "latest_metrics": {
@@ -250,7 +250,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "when-is-chinese-new-year-2027",
@@ -260,7 +260,7 @@
       "funnel": "cutdone.com/2027-goal-wall",
       "hypothesis": "The exact date of Chinese New Year 2027, a live countdown, and why the date moves every year on the lunisolar calendar.",
       "launched": "2026-09-20",
-      "duration_days": 11,
+      "duration_days": 42,
       "status": "testing",
       "priority": 0.8,
       "latest_metrics": {
@@ -277,7 +277,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "year-of-the-fire-goat-2027",
@@ -287,7 +287,7 @@
       "funnel": "cutdone.com/2027-goal-wall",
       "hypothesis": "What a Fire Goat year means, why 2027 is different from other Goat years, and the general theme of the year ahead.",
       "launched": "2026-09-20",
-      "duration_days": 11,
+      "duration_days": 42,
       "status": "testing",
       "priority": 0.8,
       "latest_metrics": {
@@ -304,7 +304,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "2027-lucky-numbers-colors",
@@ -314,7 +314,7 @@
       "funnel": "cutdone.com/2027-goal-wall",
       "hypothesis": "Traditional lucky numbers (2, 7) and colors (green, red, purple) for the 2027 Fire Goat year, plus what's traditionally unlucky.",
       "launched": "2026-09-20",
-      "duration_days": 11,
+      "duration_days": 42,
       "status": "testing",
       "priority": 0.78,
       "latest_metrics": {
@@ -331,7 +331,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "chinese-new-year-2027-food",
@@ -341,7 +341,7 @@
       "funnel": "cutdone.com/2027-goal-wall",
       "hypothesis": "Classic Chinese New Year dishes and their symbolic meaning \u2014 fish, dumplings, spring rolls, nian gao, longevity noodles \u2014 plus foods to avoid.",
       "launched": "2026-09-20",
-      "duration_days": 11,
+      "duration_days": 42,
       "status": "testing",
       "priority": 0.78,
       "latest_metrics": {
@@ -358,7 +358,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "chinese-zodiac-years-chart",
@@ -368,7 +368,7 @@
       "funnel": "cutdone.com/2027-goal-wall",
       "hypothesis": "Full Chinese zodiac years reference chart from 1924 to 2031 \u2014 find your animal sign by birth year. 2027 is the Year of the Goat.",
       "launched": "2026-09-20",
-      "duration_days": 11,
+      "duration_days": 42,
       "status": "testing",
       "priority": 0.8,
       "latest_metrics": {
@@ -385,7 +385,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     },
     {
       "id": "2027-public-holidays-china",
@@ -395,7 +395,7 @@
       "funnel": "cutdone.com/2027-goal-wall",
       "hypothesis": "Estimated 2027 China public holiday dates for Spring Festival, Qingming, Labour Day, Dragon Boat, Mid-Autumn and National Day golden weeks \u2014 official schedule not yet announced.",
       "launched": "2026-09-20",
-      "duration_days": 11,
+      "duration_days": 42,
       "status": "testing",
       "priority": 0.75,
       "latest_metrics": {
@@ -412,7 +412,7 @@
           "status": "testing"
         }
       ],
-      "last_updated": "2026-10-01"
+      "last_updated": "2026-11-01"
     }
   ]
 }
