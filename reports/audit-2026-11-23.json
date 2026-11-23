@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-23",
+  "sites": [
+    {
+      "url": "https://chinesefortunetools.online/",
+      "status": 200,
+      "title": "2027 Year of the Goat \u2014 Chinese Zodiac Fortune & Feng Shui Guide",
+      "issues": [],
+      "sitemap": {
+        "ok": true,
+        "count": 162
+      },
+      "orphans": {
+        "orphans_in_sitemap": [
+          "https://chinesefortunetools.online/2027/snake/december/",
+          "https://chinesefortunetools.online/2027/rooster/october/",
+          "https://chinesefortunetools.online/2027/goat/april/",
+          "https://chinesefortunetools.online/2027/dog/august/",
+          "https://chinesefortunetools.online/2027/rooster/december/",
+          "https://chinesefortunetools.online/2027/snake/september/",
+          "https://chinesefortunetools.online/2027/pig/january/",
+          "https://chinesefortunetools.online/2027/snake/february/",
+          "https://chinesefortunetools.online/2027/goat/december/",
+          "https://chinesefortunetools.online/2027/tiger/november/"
+        ],
+        "linked_missing_from_sitemap": [
+          "https://chinesefortunetools.online/festival-countdown/",
+          "https://chinesefortunetools.online/sitemap.xml/",
+          "https://chinesefortunetools.online/data/zodiac.json/",
+          "https://chinesefortunetools.online/data/tools.json/",
+          "https://chinesefortunetools.online/2027/",
+          "https://chinesefortunetools.online/data/festivals.json/",
+          "https://chinesefortunetools.online/red-envelope-open/"
+        ]
+      },
+      "site_name": "chinesefortunetools.online"
+    },
+    {
+      "url": "https://chinesefortunetools.com/",
+      "status": 200,
+      "title": "ChineseFortuneTools \u2014 Chinese Horoscope, Zodiac & BaZi Tools",
+      "issues": [],
+      "sitemap": {
+        "ok": true,
+        "count": 217
+      },
+      "orphans": {
+        "orphans_in_sitemap": [
+          "https://chinesefortunetools.com/chinese-horoscope/2028/",
+          "https://chinesefortunetools.com/feng-shui/basics/what-is-feng-shui/",
+          "https://chinesefortunetools.com/feng-shui/stories/tai-shan-shi-gan-dang/",
+          "https://chinesefortunetools.com/chinese-horoscope/2028/dragon/",
+          "https://chinesefortunetools.com/feng-shui/stories/han-xin-dragon-vein-legend/",
+          "https://chinesefortunetools.com/chinese-horoscope/2028/tiger/",
+          "https://chinesefortunetools.com/zodiac-personality/",
+          "https://chinesefortunetools.com/feng-shui/study/study-room-layout-feng-shui/",
+          "https://chinesefortunetools.com/feng-shui/study/what-is-wenchang-position/",
+          "https://chinesefortunetools.com/feng-shui/modern/"
+        ],
+        "linked_missing_from_sitemap": [
+          "https://chinesefortunetools.com/zodiac-games/stars/",
+          "https://chinesefortunetools.com/chinese-zodiac/shadow-quiz/",
+          "https://chinesefortunetools.com/chinese-zodiac/discover/",
+          "https://chinesefortunetools.com/chinese-zodiac/ox/",
+          "https://chinesefortunetools.com/learn/what-is-feng-shui/",
+          "https://chinesefortunetools.com/face-reading/reading/",
+          "https://chinesefortunetools.com/good-luck/wallpapers/",
+          "https://chinesefortunetools.com/zodiac-games/compatibility/",
+          "https://chinesefortunetools.com/chinese-zodiac/horse/",
+          "https://chinesefortunetools.com/widgets/"
+        ]
+      },
+      "site_name": "chinesefortunetools.com"
+    },
+    {
+      "url": "https://chinarules101.com/",
+      "status": 200,
+      "title": "China Rules 101 \u2014 Chinese Etiquette, Gifts & Customs for Foreigners",
+      "issues": [],
+      "sitemap": {
+        "ok": true,
+        "count": 344
+      },
+      "orphans": {
+        "orphans_in_sitemap": [
+          "https://chinarules101.com/etiquette/teapot-spout-never-faces-guests/",
+          "https://chinarules101.com/customs/chinese-hospital-appointment-guide/",
+          "https://chinarules101.com/customs/china-iv-drip-culture-foreigners/",
+          "https://chinarules101.com/social/drinking-with-friends-in-china/",
+          "https://chinarules101.com/job/manage-business/terminating-employees-in-china/",
+          "https://chinarules101.com/holidays/chinese-red-envelope-guide/",
+          "https://chinarules101.com/business/trust-building-china-western-contrast/",
+          "https://chinarules101.com/business/chinese-company-seal-gongzhang-guide/",
+          "https://chinarules101.com/business/chinese-negotiation-concessions-guide/",
+          "https://chinarules101.com/etiquette/three-cups-of-tea-rule/"
+        ],
+        "linked_missing_from_sitemap": [
+          "https://chinarules101.com/sitemap.xml/"
+        ]
+      },
+      "site_name": "chinarules101.com"
+    },
+    {
+      "url": "https://chinesenamecraft.com/",
+      "status": 200,
+      "title": "Chinese Name Generator \u2014 Find Your Chinese Name | ChineseNameCraft",
+      "issues": [],
+      "sitemap": {
+        "ok": true,
+        "count": 974
+      },
+      "orphans": {
+        "orphans_in_sitemap": [
+          "https://chinesenamecraft.com/name-meaning/\u65b0/",
+          "https://chinesenamecraft.com/name-meaning/\u8482/",
+          "https://chinesenamecraft.com/names/dennis/",
+          "https://chinesenamecraft.com/name-meaning/\u9edb/",
+          "https://chinesenamecraft.com/names/david/",
+          "https://chinesenamecraft.com/names/logan/",
+          "https://chinesenamecraft.com/name-meaning/\u6069/",
+          "https://chinesenamecraft.com/names/francis/",
+          "https://chinesenamecraft.com/name-meaning/\u7709/",
+          "https://chinesenamecraft.com/names/sean/"
+        ],
+        "linked_missing_from_sitemap": [
+          "https://chinesenamecraft.com/sitemap.xml/"
+        ]
+      },
+      "site_name": "chinesenamecraft.com"
+    }
+  ]
+}
